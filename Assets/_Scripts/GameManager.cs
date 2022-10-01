@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         _levelItemPool = new List<GameObject>();
         _levelRandomItemPool = new List<GameObject>();
-        Dictionary<int, int> _currentRecipe = LevelMgr.SetupRecipe(_currentLevel);
+        _currentRecipe = LevelMgr.SetupRecipe(_currentLevel);
         foreach (KeyValuePair<int, int> kvp in _currentRecipe)
         {
             for (int i = 0; i < kvp.Value; i++)
@@ -150,5 +150,36 @@ public class GameManager : MonoBehaviour
         newItem.transform.localScale = Vector3.one;
         newItem.transform.SetAsLastSibling();
         newItem.transform.position = new Vector3(Random.Range(SpawnPosMin.position.x, SpawnPosMax.position.x), Random.Range(SpawnPosMin.position.y, SpawnPosMax.position.y), 0f);
+    }
+
+    public bool CheckFood(FoodItem item)
+    {
+        int idToRemove = -1;
+        foreach (KeyValuePair<int, int> kvp in _currentRecipe)
+        {
+            if (FoodPrefabs[kvp.Key].GetComponent<FoodItem>().Name == item.Name)
+            {
+                idToRemove = kvp.Key;
+                break;
+            }
+        }
+        if (idToRemove >= 0)
+        {
+            if (_currentRecipe[idToRemove] <= 1)
+            {
+                _currentRecipe.Remove(idToRemove);
+                if (_currentRecipe.Count == 0)
+                {
+                    Debug.Log("win");
+                }
+            }
+            else
+            {
+                _currentRecipe[idToRemove]--;
+            }
+            return true;
+        }
+        else
+            return false;
     }
 }

@@ -7,6 +7,8 @@ public class Monster : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("EATEN");
+        var obj = eventData.pointerDrag;
+        bool good = GameManager.Instance.CheckFood(obj.GetComponent<FoodItem>());
+        Destroy(obj);
     }
 }
