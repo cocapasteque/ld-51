@@ -13,13 +13,20 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (_onConveyor)
         {
-            transform.Translate(Vector3.right * GameManager.Instance.ConveyorSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * GameManager.Instance.ConveyorSpeed * Time.deltaTime, Space.World);
+            if (transform.position.x >= GameManager.Instance.BurnPos.position.x)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _onConveyor = false; 
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+        _onConveyor = false;
+        GameManager.Instance.SetDragging(true);
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -29,6 +36,12 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        GameManager.Instance.SetDragging(false);
+    }
+
+    public void SetOnConveyor()
+    {
+        _onConveyor = true;
     }
 }

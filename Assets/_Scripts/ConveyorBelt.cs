@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ConveyorBelt : MonoBehaviour
+public class ConveyorBelt : MonoBehaviour, IDropHandler
 {
     public Transform ArrowParent;   
     public List<Transform> ArrowObjs;
@@ -11,6 +12,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private int _lastArrowIndex;
     private float _arrowParentResetXValue;
+
 
     private void Awake()
     {
@@ -36,5 +38,10 @@ public class ConveyorBelt : MonoBehaviour
                 ArrowObjs[i].localPosition += Vector3.right * _arrowParentResetXValue;
             }
         }       
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        eventData.pointerDrag.GetComponent<FoodItem>().SetOnConveyor();
     }
 }

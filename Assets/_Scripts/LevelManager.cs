@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public void SetupRecipe(int level)
+    public Dictionary<int, int> SetupRecipe(int level)
     {
         int sum = 0;
         int variety = 1;
@@ -21,22 +21,23 @@ public class LevelManager : MonoBehaviour
         variety = Mathf.Min(variety, GameManager.Instance.FoodPrefabs.Count);
 
         //key: index of object | value: amount
-        Dictionary<int, int> Recipe = new Dictionary<int, int>();
-        List<int> Keys = new List<int>();
+        Dictionary<int, int> recipe = new Dictionary<int, int>();
+        List<int> keys = new List<int>();
         for (int i = 0; i < variety; i++)
         {
             int newKey;
             do
             {
                 newKey = Random.Range(0, GameManager.Instance.FoodPrefabs.Count);
-            } while (Recipe.ContainsKey(newKey));
+            } while (recipe.ContainsKey(newKey));
 
-            Recipe.Add(newKey, 1);
-            Keys.Add(newKey);
+            recipe.Add(newKey, 1);
+            keys.Add(newKey);
         }
         for (int i = variety; i < level; i++)
         {
-            Recipe[Keys[Random.Range(0, Keys.Count)]]++;
+            recipe[keys[Random.Range(0, keys.Count)]]++;
         }
+        return recipe;
     }
 }
