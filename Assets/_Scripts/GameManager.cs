@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public float BaseConveyorSpeed = 50f;
     public float BaseFallingSpeed = 50f;
+    public float ConveyorSpeedLevelIncrease = 1.15f;
     [HideInInspector] public float ConveyorSpeed;
     [HideInInspector] public float FallingSpeed;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     public LevelManager LevelMgr;
     public RankingManager RankingMgr;
 
+    public float BaseGoodRandomRate = 0.9f;
     public float FixedSpawnDuration = 0.75f;
     public Transform SpawnPosMin, SpawnPosMax, BurnPos;
 
@@ -32,13 +34,14 @@ public class GameManager : MonoBehaviour
     
     private bool _timerRunning = false;
     private bool _draggingFood = false;
-    public int _currentLevel = 0;
+    private int _currentLevel = 0;
     private List<GameObject> _levelItemPool;
     private List<GameObject> _levelRandomItemPool;
     Dictionary<int, int> _currentRecipe;
-    public float _currentGoodRandomRate = 0.9f;
+    private float _currentGoodRandomRate;
     private bool _spawning = false;
     private float _time;
+    private float _conveyorSpeedLevelModifier = 1f;
 
     public static GameManager Instance;
 
@@ -56,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        ConveyorSpeed = BaseConveyorSpeed * MainCanvas.localScale.x;
+        ConveyorSpeed = BaseConveyorSpeed * _conveyorSpeedLevelModifier * MainCanvas.localScale.x;
         FallingSpeed = BaseFallingSpeed * MainCanvas.localScale.x;
 
         if (_timerRunning)
@@ -117,6 +120,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupNextLevel()
     {
+        _conveyorSpeedLevelModifier = Mathf.Pow(ConveyorSpeedLevelIncrease, _currentLevel - 1);
+        _currentGoodRandomRate = Mathf.Pow(BaseGoodRandomRate, _currentLevel - 1);
         SetupItemPools();
         UpdateRecipe();
         ResetTimer();
