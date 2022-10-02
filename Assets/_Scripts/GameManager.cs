@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RecipeText;
     public UIView RecipeView;
     public Transform MainCanvas;
+
+    [HideInInspector] public bool LevelDone = false;
     
     private bool _timerRunning = false;
     private bool _draggingFood = false;
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelCompleted()
     {
+        LevelDone = true;
         _currentLevel++;
         _spawning = false;
         RecipeView.Hide();
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WaitForShow());
         IEnumerator WaitForShow()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
             RecipeView.Show();
         }
     }
@@ -122,6 +125,7 @@ public class GameManager : MonoBehaviour
     {
         _conveyorSpeedLevelModifier = Mathf.Pow(ConveyorSpeedLevelIncrease, _currentLevel - 1);
         _currentGoodRandomRate = Mathf.Pow(BaseGoodRandomRate, _currentLevel - 1);
+        LevelDone = false;
         SetupItemPools();
         UpdateRecipe();
         ResetTimer();
