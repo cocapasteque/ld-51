@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
     {
         _timerRunning = false;
         _spawning = false;
+        RecipeView.Hide();
         RankingMgr.SendScore(_currentLevel, _time);
         GameEventMessage.SendEvent("GameOver");
     }

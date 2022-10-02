@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 1; i <= int.MaxValue; i++)
         {
             sum += i;
-            if (sum >= level)
+            if (sum >= (level / 2) + 1)
             {
                 variety = i;
                 break;
@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
             recipe.Add(newKey, 1);
             keys.Add(newKey);
         }
-        for (int i = variety; i < level; i++)
+        for (int i = variety; i < (level / 2) + 1; i++)
         {
             recipe[keys[Random.Range(0, keys.Count)]]++;
         }
