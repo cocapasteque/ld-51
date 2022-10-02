@@ -63,6 +63,7 @@ public class BoardEntry
     [JsonProperty("id")] public int id;
     [JsonProperty("name")] public string name;
     [JsonProperty("score")] public float score;
+    [JsonProperty("time")] public float time;
 }
 
 [Serializable]

@@ -15,4 +15,9 @@ MonoBehaviour:
   CategoryName: General
   DatabaseType: 2
   Names:
+  - Credits
+  - General
+  - Leaderboard
+  - Main
+  - Name
   - Unnamed

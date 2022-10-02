@@ -5,6 +5,7 @@ using System.Globalization;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RankingManager : MonoBehaviour
 {
@@ -33,8 +34,7 @@ public class RankingManager : MonoBehaviour
             }
         });
 
-        // TODO: CHANGE NAME HERE FOR PLAYER NAME
-        Leaderboard.GetOwn("cocapasteque").Then(res =>
+        Leaderboard.GetOwn(NameManager.Instance.Name).Then(res =>
         {
             Debug.Log("Personal got: " + JsonConvert.SerializeObject(res));
             var minutes = (int)res.score / 60;
@@ -49,13 +49,14 @@ public class RankingManager : MonoBehaviour
         });
     }
 
-    public void SendScore()
+    public void SendScore(int level, float seconds)
     {
         Debug.Log("Sending score");
         Leaderboard.SendScore(new BoardEntry()
         {
-            name = "cocapasteque",
-            score = 500
+            name = NameManager.Instance.Name,
+            score = level,
+            time = seconds
         }, apiSecretKey).Then(res => { Debug.Log("Score sent: " + JsonConvert.SerializeObject(res)); });
     }
 }
@@ -63,7 +64,7 @@ public class RankingManager : MonoBehaviour
 [Serializable]
 public class Rank
 {
-    public Text rankNr;
-    public Text name;
-    public Text time;
+    public TextMeshProUGUI rankNr;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI time;
 }
