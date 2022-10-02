@@ -8,6 +8,7 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public string Name;
 
     private bool _onConveyor = true;
+    private bool _falling;
 
     private void Update()
     {
@@ -19,6 +20,12 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 Destroy(gameObject);
             }
         }
+        else if (_falling)
+        {
+            transform.Translate(Vector3.down * GameManager.Instance.FallingSpeed * Time.deltaTime, Space.World);
+            if (transform.position.y <= -100)
+                Destroy(gameObject);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -27,6 +34,7 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         _onConveyor = false;
         GameManager.Instance.SetDragging(true);
         transform.SetAsLastSibling();
+        _falling = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -38,6 +46,8 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         GameManager.Instance.SetDragging(false);
+        if (!_onConveyor)
+            _falling = true;
     }
 
     public void SetOnConveyor()

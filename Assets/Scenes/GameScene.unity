@@ -1665,21 +1665,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerBar: {fileID: 1287926270}
+  BaseConveyorSpeed: 125
+  BaseFallingSpeed: 500
   ConveyorSpeed: 40
+  FallingSpeed: 0
   FoodPrefabs:
   - {fileID: 950585005768615388, guid: 2a7cf0b3a64f54642af7af521fdcf445, type: 3}
   - {fileID: 7415731397045384016, guid: d11795ac40097ee4b88562a08dd0637c, type: 3}
   - {fileID: 7320260950989254792, guid: 2b544aa28197b5c428fb99f3fd9c7034, type: 3}
   BadFoodPrefabs:
+  - {fileID: 6531803660491562332, guid: d8c11f6cc235b184aa182daa0e049409, type: 3}
   - {fileID: 2111356911346206865, guid: 32993b59d12d2394c9d60ca72c6714da, type: 3}
+  - {fileID: 5548116063744113846, guid: 38da5c1bf5b3e514b8b3808e02a9e6db, type: 3}
   FoodParent: {fileID: 1425846546}
   LevelMgr: {fileID: 543476809}
   FixedSpawnDuration: 8.5
   SpawnPosMin: {fileID: 658627943}
   SpawnPosMax: {fileID: 1620606934}
   BurnPos: {fileID: 31799841}
-  _currentLevel: 2
-  _currentGoodRandomRate: 0.5
+  RecipeText: {fileID: 1219272693}
+  RecipeView: {fileID: 1716232081}
+  MainCanvas: {fileID: 780484451}
+  _currentLevel: 1
+  _currentGoodRandomRate: 0.7
 --- !u!4 &1564644992
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,8 +1929,8 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 0
-  CustomStartAnchoredPosition: {x: -363.28, y: 352.34006, z: 0}
+  BehaviorAtStart: 1
+  CustomStartAnchoredPosition: {x: -363.28, y: 425.3, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
   DisableCanvasWhenHidden: 1
@@ -1934,7 +1942,7 @@ MonoBehaviour:
       Move:
         AnimationType: 2
         Enabled: 1
-        From: {x: -363.28, y: 352.3401, z: 0}
+        From: {x: -363.28, y: 425.3, z: 0}
         To: {x: -363.28, y: 447, z: 0}
         By: {x: 0, y: 0, z: 0}
         UseCustomFromAndTo: 1
@@ -2209,7 +2217,7 @@ MonoBehaviour:
         AnimationType: 1
         Enabled: 1
         From: {x: -363.28, y: 447, z: 0}
-        To: {x: -363.28, y: 352.3401, z: 0}
+        To: {x: -363.28, y: 425.3, z: 0}
         By: {x: 0, y: 0, z: 0}
         UseCustomFromAndTo: 1
         Vibrato: 10
@@ -2467,7 +2475,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1564644991}
+            m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+            m_MethodName: StartNextLevel
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -2487,7 +2507,19 @@ MonoBehaviour:
         CustomSortingLayer: Default
       Event:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 1564644991}
+            m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+            m_MethodName: SetupNextLevel
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       GameEvents: []
       SoundData:
         SoundSource: 0
@@ -2646,7 +2678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

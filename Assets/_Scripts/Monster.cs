@@ -9,6 +9,7 @@ public class Monster : MonoBehaviour, IDropHandler
     {
         var obj = eventData.pointerDrag;
         bool good = GameManager.Instance.CheckFood(obj.GetComponent<FoodItem>());
+        GameManager.Instance.SetDragging(false);
         Destroy(obj);
     }
 }

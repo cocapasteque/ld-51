@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Doozy.Engine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public Image TimerBar;
-    public float ConveyorSpeed = 50f;
+
+    public float BaseConveyorSpeed = 50f;
+    public float BaseFallingSpeed = 50f;
+    [HideInInspector] public float ConveyorSpeed;
+    [HideInInspector] public float FallingSpeed;
 
     public List<GameObject> FoodPrefabs;
     public List<GameObject> BadFoodPrefabs;
@@ -17,16 +23,19 @@ public class GameManager : MonoBehaviour
 
     public float FixedSpawnDuration = 0.75f;
     public Transform SpawnPosMin, SpawnPosMax, BurnPos;
-    
 
-    private bool _timerRunning = true;
-    private bool _draggingFood;
+    public TextMeshProUGUI RecipeText;
+    public UIView RecipeView;
+    public Transform MainCanvas;
+    
+    private bool _timerRunning = false;
+    private bool _draggingFood = false;
     public int _currentLevel = 0;
     private List<GameObject> _levelItemPool;
     private List<GameObject> _levelRandomItemPool;
     Dictionary<int, int> _currentRecipe;
     public float _currentGoodRandomRate = 0.9f;
-    private bool _spawning;
+    private bool _spawning = false;
 
     public static GameManager Instance;
 
@@ -44,21 +53,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        ConveyorSpeed = BaseConveyorSpeed * MainCanvas.localScale.x;
+        FallingSpeed = BaseFallingSpeed * MainCanvas.localScale.x;
+
         if (_timerRunning)
         {
             TimerBar.fillAmount += Time.deltaTime / 10f;
             if (TimerBar.fillAmount >= 1f)
             {
-                _timerRunning = false;
-                Debug.Log("Game Over");
+                GameOver();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SetupItemPools();
-            ResetTimer();
-            SpawnItems();
+            RecipeView.Show();
         }
     }
 
@@ -79,16 +88,52 @@ public class GameManager : MonoBehaviour
 
     public void SetDragging(bool value)
     {
-        foreach (Transform child in FoodParent)
-        {
-            child.GetComponent<CanvasGroup>().blocksRaycasts = !value;          
-        }
+        EnableDragging(!value);
         _draggingFood = value;
     }
 
-    public void NextLevel()
+    public void EnableDragging(bool value)
+    {
+        foreach (Transform child in FoodParent)
+        {
+            child.GetComponent<CanvasGroup>().blocksRaycasts = value;
+        }
+    }
+
+    public void LevelCompleted()
     {
         _currentLevel++;
+        _spawning = false;
+        RecipeView.Hide();
+        StopTimer();
+        EnableDragging(false);
+
+        StartCoroutine(WaitForShow());
+        IEnumerator WaitForShow()
+        {
+            yield return new WaitForSeconds(2f);
+            RecipeView.Show();
+        }
+    }
+
+    public void SetupNextLevel()
+    {
+        SetupItemPools();
+        UpdateRecipe();
+        ResetTimer();
+    }
+
+    public void StartNextLevel()
+    {
+        SpawnItems();
+        StartTimer();
+        _spawning = true;
+    }
+
+    public void GameOver()
+    {
+        _timerRunning = false;
+        Debug.Log("Game Over");
     }
 
     public void SetupItemPools()
@@ -170,16 +215,27 @@ public class GameManager : MonoBehaviour
                 _currentRecipe.Remove(idToRemove);
                 if (_currentRecipe.Count == 0)
                 {
-                    Debug.Log("win");
+                    LevelCompleted();
                 }
             }
             else
             {
                 _currentRecipe[idToRemove]--;
             }
-            return true;
+            UpdateRecipe();
+            return true;            
         }
         else
             return false;
+    }
+
+    public void UpdateRecipe()
+    {
+        string txt = "";
+        foreach (KeyValuePair<int, int> kvp in _currentRecipe)
+        {
+            txt += $"{kvp.Value}x {FoodPrefabs[kvp.Key].GetComponent<FoodItem>().Name} ";
+        }
+        RecipeText.text = txt;
     }
 }
