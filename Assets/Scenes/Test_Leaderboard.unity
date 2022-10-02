@@ -631,6 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1142aed60a4826b2973f49376d50be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  apiSecretKey: ThisIsLudumDare512022##
   topRanks:
   - rankNr: {fileID: 2069340854}
     name: {fileID: 1030567574}

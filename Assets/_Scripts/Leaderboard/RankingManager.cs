@@ -8,10 +8,17 @@ using UnityEngine.UI;
 
 public class RankingManager : MonoBehaviour
 {
+    public string apiSecretKey;
+
     public Rank[] topRanks;
     public Rank personalRank;
 
     void Start()
+    {
+        Refresh();
+    }
+
+    public void Refresh()
     {
         Leaderboard.GetLeaderboard().Then(res =>
         {
@@ -20,9 +27,9 @@ public class RankingManager : MonoBehaviour
             {
                 var entry = res[i];
                 var minutes = (int)entry.score / 60;
-                
+
                 topRanks[i].name.text = entry.name;
-                topRanks[i].time.text = $"{minutes}:{(entry.score - 60f * minutes).ToString("00.###", CultureInfo.InvariantCulture)}";
+                topRanks[i].time.text = entry.score.ToString(CultureInfo.InvariantCulture);
             }
         });
 
@@ -34,12 +41,22 @@ public class RankingManager : MonoBehaviour
             personalRank.name.text = res.name;
             personalRank.time.text = res.score.ToString(CultureInfo.InvariantCulture);
             personalRank.rankNr.text = $"{res.id + 1}";
-            
+
             if (res.id == -1)
             {
                 personalRank.rankNr.text = "-";
             }
         });
+    }
+
+    public void SendScore()
+    {
+        Debug.Log("Sending score");
+        Leaderboard.SendScore(new BoardEntry()
+        {
+            name = "cocapasteque",
+            score = 500
+        }, apiSecretKey).Then(res => { Debug.Log("Score sent: " + JsonConvert.SerializeObject(res)); });
     }
 }
 
