@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Transform FoodParent;
     public LevelManager LevelMgr;
+    public RankingManager RankingMgr;
 
     public float FixedSpawnDuration = 0.75f;
     public Transform SpawnPosMin, SpawnPosMax, BurnPos;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
     Dictionary<int, int> _currentRecipe;
     public float _currentGoodRandomRate = 0.9f;
     private bool _spawning = false;
+    private float _time;
 
     public static GameManager Instance;
 
@@ -59,16 +61,12 @@ public class GameManager : MonoBehaviour
 
         if (_timerRunning)
         {
+            _time += Time.deltaTime;
             TimerBar.fillAmount += Time.deltaTime / 10f;
             if (TimerBar.fillAmount >= 1f)
             {
                 GameOver();
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RecipeView.Show();
         }
     }
 
@@ -135,12 +133,14 @@ public class GameManager : MonoBehaviour
     {
         _timerRunning = false;
         _spawning = false;
+        RankingMgr.SendScore(_currentLevel, _time);
         GameEventMessage.SendEvent("GameOver");
     }
 
     public void StartGame()
     {
         _currentLevel = 1;
+        _time = 0f;
         Debug.Log("Starting");
         StartCoroutine(StartDelayed());
 

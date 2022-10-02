@@ -9,7 +9,7 @@ using TMPro;
 
 public class RankingManager : MonoBehaviour
 {
-    public string apiSecretKey;
+    private const string apiSecretKey = "ThisIsLudumDare512022##";
 
     public Rank[] topRanks;
     public Rank personalRank;
