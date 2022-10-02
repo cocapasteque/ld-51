@@ -14,11 +14,6 @@ public class RankingManager : MonoBehaviour
     public Rank[] topRanks;
     public Rank personalRank;
 
-    void Start()
-    {
-        Refresh();
-    }
-
     public void Refresh()
     {
         Leaderboard.GetLeaderboard().Then(res =>
