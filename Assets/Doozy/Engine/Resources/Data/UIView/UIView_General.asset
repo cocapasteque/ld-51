@@ -16,8 +16,10 @@ MonoBehaviour:
   DatabaseType: 2
   Names:
   - Credits
+  - GameOver
   - General
   - Leaderboard
   - Main
   - Name
+  - Start
   - Unnamed

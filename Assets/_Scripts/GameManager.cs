@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Doozy.Engine.UI;
+using Doozy.Engine;
 
 public class GameManager : MonoBehaviour
 {
@@ -133,7 +134,21 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _timerRunning = false;
-        Debug.Log("Game Over");
+        _spawning = false;
+        GameEventMessage.SendEvent("GameOver");
+    }
+
+    public void StartGame()
+    {
+        _currentLevel = 1;
+        Debug.Log("Starting");
+        StartCoroutine(StartDelayed());
+
+        IEnumerator StartDelayed()
+        {
+            yield return new WaitForSeconds(0.5f);
+            RecipeView.Show();
+        }
     }
 
     public void SetupItemPools()
