@@ -221,7 +221,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   AllowMultipleClicks: 1
-  ButtonCategory: General
+  ButtonCategory: Custom
   ButtonName: Leaderboard
   ClickMode: 0
   DeselectButtonAfterClick: 0
@@ -1087,7 +1087,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -2886,7 +2886,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   AllowMultipleClicks: 1
-  ButtonCategory: General
+  ButtonCategory: Custom
   ButtonName: Quit
   ClickMode: 0
   DeselectButtonAfterClick: 0
@@ -3752,7 +3752,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -5938,7 +5938,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   AllowMultipleClicks: 1
-  ButtonCategory: General
+  ButtonCategory: Custom
   ButtonName: Start
   ClickMode: 0
   DeselectButtonAfterClick: 0
@@ -6804,7 +6804,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -12430,7 +12430,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -14845,7 +14845,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -17185,7 +17185,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   AllowMultipleClicks: 1
-  ButtonCategory: General
+  ButtonCategory: Custom
   ButtonName: Confirm
   ClickMode: 0
   DeselectButtonAfterClick: 0
@@ -18051,7 +18051,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -20871,7 +20871,7 @@ MonoBehaviour:
   StartScale: {x: 1, y: 1, z: 1}
   StartAlpha: 1
   AllowMultipleClicks: 1
-  ButtonCategory: General
+  ButtonCategory: Custom
   ButtonName: Credits
   ClickMode: 0
   DeselectButtonAfterClick: 0
@@ -21737,7 +21737,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: General
-        SoundName: No Sound
+        SoundName: UI Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized

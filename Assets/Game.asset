@@ -65,7 +65,7 @@ MonoBehaviour:
     m_id: 825a2415-2912-48bc-9d35-5ee8de45df19
     m_nodeId: 5b5b8bd4-ea2c-4c46-b521-9b04da261426
     m_socketName: OutputSocket_0
-    m_value: '{"ButtonCategory":"General","ButtonName":"Confirm","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_value: '{"ButtonCategory":"Custom","ButtonName":"Confirm","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_nodeType: 4
@@ -161,7 +161,7 @@ MonoBehaviour:
     m_id: 24e4747c-c1ea-4275-b963-0bc5f9990a20
     m_nodeId: a4ffab32-be46-467f-bd9e-0e3a762f02be
     m_socketName: OutputSocket_0
-    m_value: '{"ButtonCategory":"General","ButtonName":"Confirm","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
+    m_value: '{"ButtonCategory":"Custom","ButtonName":"Confirm","GameEvent":"","TimeDelay":3.0,"Trigger":0}'
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_connectionMode: 0
@@ -486,113 +486,4 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: 71e54538-7fcf-41bd-960b-083f8630a3f3
-  m_lastModified: 133091963029015659
---- !u!114 &2946142255710477727
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a651565835d4deb9517969e9738bc56, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  ErrorNodeNameIsEmpty: 0
-  ErrorDuplicateNameFoundInGraph: 0
-  m_inputSockets:
-  - m_connectionMode: 1
-    m_connections:
-    - m_inputConnectionPoint: {x: -2, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 78cd055d-16d1-43a6-9924-e1ea97b207f0
-      m_inputNodeId: 80f13ad1-f0fb-4149-83e3-ce2cb5adbdb6
-      m_inputSocketId: a3e6e962-cee8-4d42-aa93-ee4b41f423ab
-      m_outputNodeId: a4ffab32-be46-467f-bd9e-0e3a762f02be
-      m_outputSocketId: ac61a2d1-674f-4311-bc6f-25b0e74aa6cd
-    m_connectionPoints:
-    - {x: -2, y: 4}
-    - {x: 202, y: 4}
-    m_direction: 0
-    m_canBeDeleted: 0
-    m_canBeReordered: 0
-    m_curveModifier: 0
-    m_height: 24
-    m_width: 216
-    m_x: 0
-    m_y: 38
-    m_id: a3e6e962-cee8-4d42-aa93-ee4b41f423ab
-    m_nodeId: 80f13ad1-f0fb-4149-83e3-ce2cb5adbdb6
-    m_socketName: InputSocket_0
-    m_value: '{}'
-    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_outputSockets:
-  - m_connectionMode: 0
-    m_connections:
-    - m_inputConnectionPoint: {x: -2, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: dde724a0-915d-497c-bd26-9beea4658ba3
-      m_inputNodeId: f99e3e19-81f8-439e-851f-d86cc894a383
-      m_inputSocketId: aa04db15-729a-4654-bbce-972e7d6a70b5
-      m_outputNodeId: 80f13ad1-f0fb-4149-83e3-ce2cb5adbdb6
-      m_outputSocketId: f766e0a9-c385-468e-bc9b-94329b97ce47
-    m_connectionPoints:
-    - {x: -2, y: 4}
-    - {x: 202, y: 4}
-    m_direction: 1
-    m_canBeDeleted: 0
-    m_canBeReordered: 0
-    m_curveModifier: 0
-    m_height: 24
-    m_width: 216
-    m_x: 0
-    m_y: 62
-    m_id: f766e0a9-c385-468e-bc9b-94329b97ce47
-    m_nodeId: 80f13ad1-f0fb-4149-83e3-ce2cb5adbdb6
-    m_socketName: OutputSocket_0
-    m_value: '{}'
-    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
-      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_nodeType: 4
-  m_allowDuplicateNodeName: 1
-  m_allowEmptyNodeName: 0
-  m_canBeDeleted: 1
-  m_debugMode: 0
-  m_useFixedUpdate: 0
-  m_useLateUpdate: 0
-  m_useUpdate: 0
-  m_height: 156
-  m_width: 216
-  m_x: 672
-  m_y: -24
-  m_minimumInputSocketsCount: 1
-  m_minimumOutputSocketsCount: 1
-  m_graphId: 71e54538-7fcf-41bd-960b-083f8630a3f3
-  m_id: 80f13ad1-f0fb-4149-83e3-ce2cb5adbdb6
-  m_name: Wait
-  m_notes: 
-  ErrorNoGameEvent: 0
-  ErrorNoSceneName: 0
-  ErrorBadBuildIndex: 0
-  GetSceneBy: 0
-  WaitFor: 0
-  AnyValue: 0
-  IgnoreUnityTimescale: 1
-  RandomDuration: 0
-  Duration: 0.2
-  DurationMax: 1
-  DurationMin: 0
-  SceneBuildIndex: 0
-  GameEvent: 
-  SceneName: 
-  UIViewTriggerAction: 1
-  ViewCategory: General
-  ViewName: Unnamed
-  UIButtonTriggerAction: 0
-  ButtonCategory: General
-  ButtonName: Unnamed
-  UIDrawerTriggerAction: 0
-  DrawerName: Unnamed
-  CustomDrawerName: 0
+  m_lastModified: 133092131066226419
