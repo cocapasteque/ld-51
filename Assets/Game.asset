@@ -304,7 +304,7 @@ MonoBehaviour:
   AllowSceneActivation: 1
   SceneActivationDelay: 0.2
   SceneBuildIndex: 0
-  SceneName: Mu
+  SceneName: Menu
 --- !u!114 &-1270247339307208477
 MonoBehaviour:
   m_ObjectHideFlags: 1
