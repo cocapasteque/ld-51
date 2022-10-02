@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
         string txt = "";
         foreach (KeyValuePair<int, int> kvp in _currentRecipe)
         {
-            txt += $"{kvp.Value}x {FoodPrefabs[kvp.Key].GetComponent<FoodItem>().Name} ";
+            txt += $"{kvp.Value}x <sprite index={kvp.Key}> ";
         }
         RecipeText.text = txt;
     }

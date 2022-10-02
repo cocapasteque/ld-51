@@ -5830,7 +5830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1x eye
+  m_text: <sprite index=2>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 10b9b90c520cf9249b8f1955a52e0de4, type: 2}
   m_sharedMaterial: {fileID: 5416523807117671414, guid: 10b9b90c520cf9249b8f1955a52e0de4, type: 2}
@@ -5849,7 +5849,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 5200030de12b71249a4796a9ad317772, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -5857,8 +5857,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6686,18 +6686,18 @@ MonoBehaviour:
   TimerBar: {fileID: 1287926270}
   BaseConveyorSpeed: 150
   BaseFallingSpeed: 600
-  ConveyorSpeedLevelIncrease: 1.15
+  ConveyorSpeedLevelIncrease: 1.09
   ConveyorSpeed: 40
   FallingSpeed: 0
   FoodPrefabs:
-  - {fileID: 950585005768615388, guid: 2a7cf0b3a64f54642af7af521fdcf445, type: 3}
-  - {fileID: 7415731397045384016, guid: d11795ac40097ee4b88562a08dd0637c, type: 3}
-  - {fileID: 7320260950989254792, guid: 2b544aa28197b5c428fb99f3fd9c7034, type: 3}
-  - {fileID: 3507981316950181800, guid: 0a67cbbe20398744e86060a728934f23, type: 3}
+  - {fileID: 8168920663286722332, guid: c6ed1ff2d350d9d468719c9cf6674a7e, type: 3}
   - {fileID: 4420015381890015788, guid: 0a1f4aa661933eb438f0ca366fa621b8, type: 3}
   - {fileID: 6212107202504782342, guid: bf5881ec659cb1f46af8c921aac31650, type: 3}
-  - {fileID: 8168920663286722332, guid: c6ed1ff2d350d9d468719c9cf6674a7e, type: 3}
+  - {fileID: 7320260950989254792, guid: 2b544aa28197b5c428fb99f3fd9c7034, type: 3}
+  - {fileID: 7415731397045384016, guid: d11795ac40097ee4b88562a08dd0637c, type: 3}
+  - {fileID: 950585005768615388, guid: 2a7cf0b3a64f54642af7af521fdcf445, type: 3}
   - {fileID: 7235760904404188566, guid: 7f167fd1f912a274a9ee4d3b41ab264e, type: 3}
+  - {fileID: 3507981316950181800, guid: 0a67cbbe20398744e86060a728934f23, type: 3}
   BadFoodPrefabs:
   - {fileID: 6531803660491562332, guid: d8c11f6cc235b184aa182daa0e049409, type: 3}
   - {fileID: 2111356911346206865, guid: 32993b59d12d2394c9d60ca72c6714da, type: 3}
@@ -6705,7 +6705,7 @@ MonoBehaviour:
   FoodParent: {fileID: 1425846546}
   LevelMgr: {fileID: 543476809}
   RankingMgr: {fileID: 1970589512}
-  BaseGoodRandomRate: 0.9
+  BaseGoodRandomRate: 0.92
   FixedSpawnDuration: 8.5
   SpawnPosMin: {fileID: 658627943}
   SpawnPosMax: {fileID: 1620606934}
