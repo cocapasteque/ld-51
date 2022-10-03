@@ -18,6 +18,8 @@ public class Monster : MonoBehaviour, IDropHandler
     
 
     public List<AudioClip> GoodAudioClips, BadAudioClips;
+    public AudioClip BurpClip;
+    public float BurpChance = 0.2f;
 
     private AudioSource _audio;
 
@@ -60,6 +62,7 @@ public class Monster : MonoBehaviour, IDropHandler
             if (GameManager.Instance.LevelDone)
             {
                 MonsterImg.sprite = LevelEndSprite;
+                _audio.PlayOneShot(BurpClip);
                 yield return new WaitForSeconds(AfterDoneEatingDelay);
                 for (int i = 0; i < AfterEndSprites.Count; i++)
                 {
@@ -70,6 +73,14 @@ public class Monster : MonoBehaviour, IDropHandler
             else
             {
                 MonsterImg.sprite = good ? GoodEatingEnd : BadEatingEnd;
+                if (good)
+                {
+                    var rnd = Random.Range(0f, 1f);
+                    if (rnd <= BurpChance)
+                    {
+                        _audio.PlayOneShot(BurpClip);
+                    }
+                }
             }
         }
     }

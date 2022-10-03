@@ -10,6 +10,8 @@ using Doozy.Engine;
 public class GameManager : MonoBehaviour
 {
     public Image TimerBar;
+    public Image DangerIndicator;
+    public float ResetDuration = 0.7f;
 
     public float BaseConveyorSpeed = 50f;
     public float BaseFallingSpeed = 50f;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI RecipeText;
     public UIView RecipeView;
     public Transform MainCanvas;
+    public TextMeshProUGUI LevelIndicator;
 
     [HideInInspector] public bool LevelDone = false;
     
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             _time += Time.deltaTime;
             TimerBar.fillAmount += Time.deltaTime / 10f;
+            DangerIndicator.color = new Color(1f, 1f, 1f, TimerBar.fillAmount);
             if (TimerBar.fillAmount >= 1f)
             {
                 GameOver();
@@ -77,7 +81,21 @@ public class GameManager : MonoBehaviour
 
     public void ResetTimer()
     {
-        TimerBar.fillAmount = 0;
+        float t = 0;
+        float startValue = TimerBar.fillAmount;
+        float value;
+        StartCoroutine(LerpBack());
+        IEnumerator LerpBack()
+        {
+            while (TimerBar.fillAmount > 0)
+            {
+                t += Time.deltaTime / ResetDuration;
+                value = Mathf.Lerp(startValue, 0f, t);
+                TimerBar.fillAmount = value;
+                DangerIndicator.color = new Color(1f, 1f, 1f, value);
+                yield return null;
+            }
+        }
     }
 
     public void StartTimer()
@@ -108,9 +126,11 @@ public class GameManager : MonoBehaviour
     {
         LevelDone = true;
         _currentLevel++;
+        LevelIndicator.text = "Level " + _currentLevel;
         _spawning = false;
         RecipeView.Hide();
         StopTimer();
+        ResetTimer();
         EnableDragging(false);
 
         StartCoroutine(WaitForShow());
@@ -127,8 +147,7 @@ public class GameManager : MonoBehaviour
         _currentGoodRandomRate = Mathf.Pow(BaseGoodRandomRate, _currentLevel - 1);
         LevelDone = false;
         SetupItemPools();
-        UpdateRecipe();
-        ResetTimer();
+        UpdateRecipe();       
     }
 
     public void StartNextLevel()
@@ -150,6 +169,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _currentLevel = 1;
+        LevelIndicator.text = "Level " + _currentLevel;
         _time = 0f;
         Debug.Log("Starting");
         StartCoroutine(StartDelayed());
