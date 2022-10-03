@@ -62,13 +62,13 @@ public class Monster : MonoBehaviour, IDropHandler
             if (GameManager.Instance.LevelDone)
             {
                 MonsterImg.sprite = LevelEndSprite;
-                _audio.PlayOneShot(BurpClip);
                 yield return new WaitForSeconds(AfterDoneEatingDelay);
                 for (int i = 0; i < AfterEndSprites.Count; i++)
                 {
                     MonsterImg.sprite = AfterEndSprites[i];
                     yield return new WaitForSeconds(EatingSpriteCooldown);
                 }
+                _audio.PlayOneShot(BurpClip);
             }
             else
             {
