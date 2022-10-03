@@ -8108,6 +8108,7 @@ MonoBehaviour:
   RecipeView: {fileID: 1716232081}
   MainCanvas: {fileID: 780484451}
   LevelIndicator: {fileID: 740324890}
+  Monster: {fileID: 1605089903}
   LevelDone: 0
 --- !u!4 &1564644992
 Transform:
@@ -8199,7 +8200,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b8db07e7b3834734aa0989d3675e2c7d, type: 3}
   - {fileID: 21300000, guid: f74090d4d2933cb45a3d4d7f9b9c3713, type: 3}
   - {fileID: 21300000, guid: a6d60940b1dd7554da57b1fcf7a75d10, type: 3}
-  WalkingSpriteCooldown: 0.3
+  - {fileID: 21300000, guid: 78ffe47ff0840a646bab003f19503859, type: 3}
+  - {fileID: 21300000, guid: 2595361a9077003448a692b85789a7db, type: 3}
+  - {fileID: 21300000, guid: 2a65986d37c8d2041bfc728e1f535ce1, type: 3}
+  - {fileID: 21300000, guid: 307e0cec262219947896c61c688fd6fa, type: 3}
+  - {fileID: 21300000, guid: 2a65986d37c8d2041bfc728e1f535ce1, type: 3}
+  - {fileID: 21300000, guid: b8db07e7b3834734aa0989d3675e2c7d, type: 3}
+  - {fileID: 21300000, guid: f74090d4d2933cb45a3d4d7f9b9c3713, type: 3}
+  - {fileID: 21300000, guid: a6d60940b1dd7554da57b1fcf7a75d10, type: 3}
+  - {fileID: 21300000, guid: 78ffe47ff0840a646bab003f19503859, type: 3}
+  - {fileID: 21300000, guid: 2595361a9077003448a692b85789a7db, type: 3}
+  - {fileID: 21300000, guid: 787faf5fae3fc7746aca193f1ff4b639, type: 3}
+  - {fileID: 21300000, guid: 364143ca5570ed349b7156e7d5cbfaed, type: 3}
+  - {fileID: 21300000, guid: 2a65986d37c8d2041bfc728e1f535ce1, type: 3}
+  WalkingSpriteCooldown: 0.2
+  LoseSprite: {fileID: 21300000, guid: ab0e2ad0ba9a2a34a8b84cceed17b639, type: 3}
   GoodAudioClips:
   - {fileID: 8300000, guid: cd394239f4112ff4fa3ccbccaa525dd9, type: 3}
   - {fileID: 8300000, guid: e324a2a1b1e45814983605dc815cde31, type: 3}

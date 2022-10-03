@@ -8,7 +8,6 @@ public class Monster : MonoBehaviour, IDropHandler
 {
     public Image MonsterImg;
     
-
     public Sprite BaseSprite;
 
     public List<Sprite> EatingSprites, AfterEndSprites;
@@ -18,6 +17,8 @@ public class Monster : MonoBehaviour, IDropHandler
 
     public List<Sprite> WalkingSprites;
     public float WalkingSpriteCooldown = 0.13f;
+
+    public Sprite LoseSprite;
 
     public List<AudioClip> GoodAudioClips, BadAudioClips;
     public AudioClip BurpClip;
@@ -99,5 +100,11 @@ public class Monster : MonoBehaviour, IDropHandler
             currentIndex = (currentIndex + 1) % WalkingSprites.Count;
             yield return new WaitForSeconds(WalkingSpriteCooldown);
         }
+    }
+
+    public void Lose()
+    {
+        StopAllCoroutines();
+        MonsterImg.sprite = LoseSprite;
     }
 }

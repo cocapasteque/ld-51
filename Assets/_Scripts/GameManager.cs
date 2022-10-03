@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public Transform MainCanvas;
     public TextMeshProUGUI LevelIndicator;
 
+    public Monster Monster;
+
     [HideInInspector] public bool LevelDone = false;
     
     private bool _timerRunning = false;
@@ -163,6 +165,7 @@ public class GameManager : MonoBehaviour
         _spawning = false;
         RecipeView.Hide();
         RankingMgr.SendScore(_currentLevel, _time);
+        Monster.Lose();
         GameEventMessage.SendEvent("GameOver");
     }
 
