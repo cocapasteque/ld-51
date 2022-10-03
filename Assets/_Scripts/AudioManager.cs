@@ -13,8 +13,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("Music", 12);
-        uiSlider.value = PlayerPrefs.GetFloat("UI", -2);
+        musicSlider.value = PlayerPrefs.GetFloat("Music", -10);
+        uiSlider.value = PlayerPrefs.GetFloat("UI", -10);
     }
     
     // Update is called once per frame

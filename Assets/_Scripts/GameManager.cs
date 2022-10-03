@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        ResetTimer();
         _currentLevel = 1;
         LevelIndicator.text = "Level " + _currentLevel;
         _time = 0f;
@@ -176,7 +177,7 @@ public class GameManager : MonoBehaviour
 
         IEnumerator StartDelayed()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(ResetDuration + 0.05f);
             RecipeView.Show();
         }
     }
