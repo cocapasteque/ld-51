@@ -4919,7 +4919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1123, y: -34}
+  m_AnchoredPosition: {x: -1127, y: -34}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &684710408
@@ -8195,6 +8195,11 @@ MonoBehaviour:
   LevelEndSprite: {fileID: 21300000, guid: 6be94b41180da214c9d5d1c74f3734a5, type: 3}
   EatingSpriteCooldown: 0.13
   AfterDoneEatingDelay: 1.5
+  WalkingSprites:
+  - {fileID: 21300000, guid: b8db07e7b3834734aa0989d3675e2c7d, type: 3}
+  - {fileID: 21300000, guid: f74090d4d2933cb45a3d4d7f9b9c3713, type: 3}
+  - {fileID: 21300000, guid: a6d60940b1dd7554da57b1fcf7a75d10, type: 3}
+  WalkingSpriteCooldown: 0.3
   GoodAudioClips:
   - {fileID: 8300000, guid: cd394239f4112ff4fa3ccbccaa525dd9, type: 3}
   - {fileID: 8300000, guid: e324a2a1b1e45814983605dc815cde31, type: 3}
@@ -8370,7 +8375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1091, y: -129}
+  m_AnchoredPosition: {x: -1108, y: -129}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1648216860

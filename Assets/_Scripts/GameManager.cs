@@ -147,12 +147,12 @@ public class GameManager : MonoBehaviour
         _currentGoodRandomRate = Mathf.Pow(BaseGoodRandomRate, _currentLevel - 1);
         LevelDone = false;
         SetupItemPools();
-        UpdateRecipe();       
+        UpdateRecipe();   
+        SpawnItems();
     }
 
     public void StartNextLevel()
     {
-        SpawnItems();
         StartTimer();
         _spawning = true;
     }

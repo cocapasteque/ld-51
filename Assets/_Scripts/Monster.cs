@@ -15,7 +15,9 @@ public class Monster : MonoBehaviour, IDropHandler
     public Sprite GoodEatingEnd, BadEatingEnd, LevelEndSprite;
     public float EatingSpriteCooldown = 0.13f;
     public float AfterDoneEatingDelay = 1.5f;
-    
+
+    public List<Sprite> WalkingSprites;
+    public float WalkingSpriteCooldown = 0.13f;
 
     public List<AudioClip> GoodAudioClips, BadAudioClips;
     public AudioClip BurpClip;
@@ -26,6 +28,7 @@ public class Monster : MonoBehaviour, IDropHandler
     private void Awake()
     {
         _audio = GetComponent<AudioSource>();
+        StartCoroutine(WalkingAnim(0f));
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -82,6 +85,19 @@ public class Monster : MonoBehaviour, IDropHandler
                     }
                 }
             }
+            StartCoroutine(WalkingAnim(0.2f));
+        }
+    }
+
+    private IEnumerator WalkingAnim(float delay)
+    {
+        int currentIndex = 0;
+        yield return new WaitForSeconds(delay);
+        while (true)
+        {
+            MonsterImg.sprite = WalkingSprites[currentIndex];
+            currentIndex = (currentIndex + 1) % WalkingSprites.Count;
+            yield return new WaitForSeconds(WalkingSpriteCooldown);
         }
     }
 }
