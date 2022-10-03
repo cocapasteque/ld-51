@@ -29,7 +29,7 @@ public class Monster : MonoBehaviour, IDropHandler
     private void Awake()
     {
         _audio = GetComponent<AudioSource>();
-        StartCoroutine(WalkingAnim(0f));
+        StartWalking();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -86,8 +86,14 @@ public class Monster : MonoBehaviour, IDropHandler
                     }
                 }
             }
-            StartCoroutine(WalkingAnim(0.2f));
+            StartWalking(0.2f);
         }
+    }
+
+    public void StartWalking(float delay = 0f)
+    {
+        StopAllCoroutines();
+        StartCoroutine(WalkingAnim(delay));
     }
 
     private IEnumerator WalkingAnim(float delay)

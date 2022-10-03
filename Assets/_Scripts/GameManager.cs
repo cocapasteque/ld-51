@@ -176,6 +176,7 @@ public class GameManager : MonoBehaviour
         LevelIndicator.text = "Level " + _currentLevel;
         _time = 0f;
         Debug.Log("Starting");
+        Monster.StartWalking();
         StartCoroutine(StartDelayed());
 
         IEnumerator StartDelayed()

@@ -8222,7 +8222,7 @@ MonoBehaviour:
   BadAudioClips:
   - {fileID: 8300000, guid: 627998b0c894b36489276a0e26bdc088, type: 3}
   BurpClip: {fileID: 8300000, guid: ea759ac7d26e0874f82d35bc54243da1, type: 3}
-  BurpChance: 0.2
+  BurpChance: 0.02
 --- !u!114 &1605089904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11977,7 +11977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 0
   ControllerName: 
-  DontDestroyControllerOnLoad: 1
+  DontDestroyControllerOnLoad: 0
   m_graphModel: {fileID: 11400000, guid: 726d8a3187200aa4e92ce9b8b6439e3e, type: 2}
 --- !u!4 &1880848158
 Transform:

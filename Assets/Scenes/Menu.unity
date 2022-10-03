@@ -28462,7 +28462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 0
   ControllerName: 
-  DontDestroyControllerOnLoad: 1
+  DontDestroyControllerOnLoad: 0
   m_graphModel: {fileID: 11400000, guid: c67fbf0e3039a664a91769b6e659ffb8, type: 2}
 --- !u!4 &2058233004
 Transform:
@@ -29671,7 +29671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113003626}
-  - component: {fileID: 2113003625}
+  - component: {fileID: 2113003627}
   - component: {fileID: 2113003624}
   m_Layer: 0
   m_Name: Main Theme Music
@@ -29776,18 +29776,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2113003625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2113003623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a389d879a4b4c4bad65f7170bb992a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2113003626
 Transform:
   m_ObjectHideFlags: 0
@@ -29803,6 +29791,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113003627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113003623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc437cf64b29bd43976d11c82755deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2113370520
 GameObject:
   m_ObjectHideFlags: 0
