@@ -9,6 +9,10 @@ using Doozy.Engine;
 
 public class GameManager : MonoBehaviour
 {
+    [HideInInspector] public Camera MainCam;
+    public Vector2 FoodItemScaleRange;
+
+
     public Image TimerBar;
     public Image DangerIndicator;
     public float ResetDuration = 0.7f;
@@ -62,6 +66,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        MainCam = Camera.main;
     }
 
     private void Update()
@@ -242,7 +248,7 @@ public class GameManager : MonoBehaviour
     {
         var newItem = Instantiate(item);
         newItem.transform.parent = FoodParent;
-        newItem.transform.localScale = Vector3.one;
+        newItem.transform.localScale = Vector3.one * Random.Range(FoodItemScaleRange.x, FoodItemScaleRange.y);
         newItem.transform.SetAsLastSibling();
         newItem.transform.position = new Vector3(Random.Range(SpawnPosMin.position.x, SpawnPosMax.position.x), Random.Range(SpawnPosMin.position.y, SpawnPosMax.position.y), 0f);
     }

@@ -39,7 +39,8 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        transform.position = GameManager.Instance.MainCam.ScreenToWorldPoint(eventData.position);
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, 0f);
     }
 
     public void OnEndDrag(PointerEventData eventData)

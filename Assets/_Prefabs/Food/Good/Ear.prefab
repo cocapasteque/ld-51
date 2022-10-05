@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -245.757, y: 23.288}
-  m_SizeDelta: {x: 52.321, y: 54.523}
+  m_SizeDelta: {x: 87.89928, y: 91.59864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4420015381890015784
 CanvasRenderer:
